@@ -6,10 +6,12 @@
 n/a
 
 ### Weekly Task/Updates
-
+* Installed ROS and received/tested a .Bag file
+* Initialized database server
 
 ### Goals for next week
-
+* Begin mapping -> store in bag file
+* Start to make tables and learn how to store bitmaps in Database
 
 ## Matt Levy - Backend
 
