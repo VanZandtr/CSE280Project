@@ -16,13 +16,17 @@ n/a
 ## Matt Levy - Backend
 
 ### Goals from last week
-n/a
+Convert .bag file into a bitmap
+Run A* on bitmap
 
 ### Weekly Task/Updates
-
+* Successfully converted a .bag file into a bitmap image.
+* Implemented A* algorithm on 2D array.
+* Did not run A* on example map because it lacked obstacles and was not fully enclosed with walls.  Will re-run A* once actual map has been created.
 
 ### Goals for next week
-
+* Re-write A* algorithm in C for speed boost
+* Script process of converting .bag file to bitmap to improve speed of process
 
 ## Emem Uko - Frontend
 
