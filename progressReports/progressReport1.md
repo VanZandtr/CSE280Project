@@ -31,10 +31,14 @@ Run A* on bitmap
 ## Emem Uko - Frontend
 
 ### Goals from last week
-n/a
+* Figure out Google Maps API 
+* Create web frontend displaying map
 
 ### Weekly Task/Updates
-
+* Created google maps API key for project
+* Created web frontend html, javascript and css files
+* Successfully displayed map on web page using my localhost 
 
 ### Goals for next week
-
+* Begin creating a design for the front end 
+* Have a simple layout done on web page
