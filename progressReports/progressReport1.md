@@ -42,5 +42,7 @@ Run A* on bitmap
 * Successfully displayed map on web page using my localhost 
 
 ### Goals for next week
+* Figure out openstreetmap api
 * Begin creating a design for the front end 
 * Have a simple layout done on web page
+
