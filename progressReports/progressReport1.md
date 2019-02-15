@@ -3,17 +3,19 @@
 ## Raymond Van Zandt - Database/ROS
 
 ### Goals from last week
-n/a
+* Get ROS and test .Bag file
+* Get rough database
 
 ### Weekly Task/Updates
 * Installed ROS and received/tested a .Bag file
 * Initialized database server
 
 ### Goals for next week
-* Begin mapping -> store in bag file
+* Store test bag file in database
+* Potentially begin mapping/making test maps ---> turtles example
 * Start to make tables and learn how to store bitmaps in Database
 
-## Matt Levy - Backend
+## Matt Levy - Backend/ROS
 
 ### Goals from last week
 Convert .bag file into a bitmap
