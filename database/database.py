@@ -26,7 +26,7 @@ print("----------------------------------------")
 print();
 
 #Create a Table
-#mycursor.execute("CREATE TABLE maps (name VARCHAR(255), address VARCHAR(255))")
+mycursor.execute("CREATE TABLE maps (id int PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), level INT, bitmap LONGBLOB, adjlevels VARCHAR(255))")
 
 mycursor.execute("SHOW TABLES")
 print("Tables")

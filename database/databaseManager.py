@@ -16,49 +16,49 @@ def hint():
     print("(q/Q/Quit/quit/exit/Exit):  Quit")
     print("(c): create table")
     print("(d): drops tables")
+    print("(s): show tables")
+    print("(m): show list of  maps")
     print("(i): insert")
     print("(u): update table")
     print("(h): display this message")
     
+def drop():
+    command = input('Are you sure you want to delete tables (y/n): ')
+    if command is 'y':
+        mycursor.execute("DROP TABLE IF EXISTS maps")
+    else:
+        return
+
+    
 hint()
 
 mycursor = mydb.cursor()
-'''
-mycursor.execute("SHOW DATABASES")
-print()
-print("Database")
-print("----------------------------------------")
-for x in mycursor:
-    print(x)
-print("----------------------------------------")
-print();
-'''
-'''print(username)
-mycursor.execute("SHOW GRANTS FOR 'rlv220'@'%'")
-permissions = []
 
-for x in mycursor:
-    x
-
-y = ''.join(x)
-permissions = y.split(',')
-        
-
-print(permissions)
-if 'SUPER' in permissions:
-    print("YES")
-else:
-    print("NO")
-'''
 while True:
-    #print(username, ">")
     command = input('~>')
     if command in ['q','Q','quit','Quit','exit','Exit']:
         print("Quitting")
         break
     if command is 'h':
-        print("H")
         hint()
+    if command is 'd':
+        print("Dropping Tables")
+        drop()
+    if command is 'm':
+        mycursor.execute("SELECT * FROM maps")
+        print("----------------------------------------")
+        for x in mycursor:
+            print(x)
+        print("----------------------------------------")
+        print();
+    if command is 's':
+        mycursor.execute("SHOW TABLES")
+        print("Tables")
+        print("----------------------------------------")
+        for x in mycursor:
+            print(x)
+        print("----------------------------------------")
+        print();
     else:
         try:
             mycursor.execute(command);
