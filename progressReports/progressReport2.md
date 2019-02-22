@@ -39,10 +39,11 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-* 
+* Created basic design for front end 
 
 ### Incomplete Tasks
-* 
+* Figuring out openstreetmap api
 
 ### Goals For Next Week
-* 
+* Figure out openstreetmap api 
+* Start working on setting up front end design
