@@ -1,1 +1,45 @@
+# Progress Report 1:	Mapping Lehigh -		2/22/2019
 
+## Group
+
+### Accomplished This Week
+* N/A
+
+### Incomplete Tasks
+* N/A
+
+### Goals For Next Week
+* Find meeting time to create initial map
+
+## Raymond Van Zandt - Database/ROS
+
+### Accomplished This Week
+* 
+
+### Incomplete Tasks
+* 
+
+### Goals For Next Week
+* Use RVIS in ROS to visualize turtlesim
+
+## Matt Levy - Backend/ROS
+
+### Accomplished This Week
+* Use turtlesim with ROS
+
+### Incomplete Tasks
+* N/A
+
+### Goals For Next Week
+* Use RVIS in ROS to visualize turtlesim
+
+## Emem Uko - Frontend
+
+### Accomplished This Week
+* 
+
+### Incomplete Tasks
+* 
+
+### Goals For Next Week
+* 
