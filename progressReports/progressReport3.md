@@ -28,22 +28,22 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-* Use turtlesim with ROS
+* Visualize turtlesim in ROS
 
 ### Incomplete Tasks
 * N/A
 
 ### Goals For Next Week
-* Use RVIS in ROS to visualize turtlesim
+* Map a floor of Packard
 
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-* Created basic design for front end 
+* Figured out openstreetmap api so we have the base map of lehigh’s campus on our app 
+* Started adding design features to the app
 
 ### Incomplete Tasks
-* Figuring out openstreetmap api
+* N/A
 
 ### Goals For Next Week
-* Figure out openstreetmap api 
-* Start working on setting up front end design
+* Continue adding design features and setting up the front end
