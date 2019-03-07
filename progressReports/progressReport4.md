@@ -8,14 +8,14 @@
 ### Incomplete Tasks
 * N/A
 
-### Goals For Next Week
+### Goals For Next Week (Week after break)
 * Get a hold of trike to start mapping Hallways (2 weeks)
 
 ## Raymond Van Zandt - Database/ROS
 
 ### Accomplished This Week
 * Tested LIDAR and recorded a test image
-* Converted file to .bmp for storage latter
+* Converted file to .bmp for storage later
 
 ### Incomplete Tasks
 * N/A
@@ -27,13 +27,13 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-* Visualize turtlesim in ROS
+* Tested LIDAR and recorded a test image
 
 ### Incomplete Tasks
 * N/A
 
 ### Goals For Next Week
-* Map a floor of Packard
+* Same as Group Goals
 
 ## Emem Uko - Frontend
 
