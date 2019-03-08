@@ -38,12 +38,13 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-* Figured out openstreetmap api so we have the base map of lehigh’s campus on our app 
-* Started adding design features to the app
+* Tested LIDAR 
+* Added some design features to front end
 
 ### Incomplete Tasks
 * N/A
 
 ### Goals For Next Week
-* Continue adding design features and setting up the front end
+* Same as group goals
+
 
