@@ -24,13 +24,14 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-* Tested LIDAR and recorded a test image
-
-### Incomplete Tasks
 * N/A
 
+### Incomplete Tasks
+* Get IMU fully working
+
 ### Goals For Next Week
-* Same as Group Goals
+* Fix errors installing IMU drivers into ROS
+* Build robot (IMU + LIDAR) to start mapping
 
 ## Emem Uko - Frontend
 
