@@ -36,11 +36,10 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-* Tested LIDAR 
-* Added some design features to front end
+* Obtained LIDAR 
 
 ### Incomplete Tasks
 * N/A
 
 ### Goals For Next Week
-* Same as group goals
+* Start mapping a floor of Packard
