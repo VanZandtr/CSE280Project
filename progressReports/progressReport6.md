@@ -14,7 +14,7 @@
 - Helped measure and prep robot for LIDAR and XML processing
 
 ### Incomplete Tasks
-- Create robot diagram (XML) --> was unable to get rviz working my laptop (suspect a windows issue)
+- Create robot diagram (XML) --> was unable to get rviz working on my laptop (suspect a windows issue)
 
 ### Goals For Next Week
 - Hopefully map 1st floor and store it in database
