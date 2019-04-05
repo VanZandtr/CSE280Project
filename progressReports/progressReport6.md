@@ -35,10 +35,12 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-- 
+- Helped measure and setup LIDAR and cart to start mapping
+- Started implementing MDL design library features to front end
 
 ### Incomplete Tasks
-- 
+- N/A
 
 ### Goals For Next Week
-- 
+- Map floor of Packard
+- Implement new front end design using MDL
