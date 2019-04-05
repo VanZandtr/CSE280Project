@@ -3,20 +3,21 @@
 ## Group
 
 ### Accomplished This Week
-- 
+- See Below
 ### Incomplete Tasks
-- 
+- See Below
 
 ## Raymond Van Zandt - Database/ROS
 
 ### Accomplished This Week
-- 
+- Solidfied compression algorithm (zlib - 45% compression) 
+- Helped measure and prep robot for LIDAR and XML processing
 
 ### Incomplete Tasks
-- 
+- Create robot diagram (XML) --> was unable to get rviz working my laptop (suspect a windows issue)
 
 ### Goals For Next Week
-- 
+- Hopefully map 1st floor and store it in database
 
 ## Matt Levy - Backend/ROS
 
