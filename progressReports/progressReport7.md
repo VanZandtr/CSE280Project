@@ -1,4 +1,4 @@
-# Progress Report 7:	Mapping Lehigh -		4/12/2019
+# Progress Report 7:	Mapping Lehigh -		4/19/2019
 
 ## Group
 
@@ -25,7 +25,7 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-- Created map using lidar
+- Created map image using lidar (First one for project)
 - Generated robot transforms
 - Created fake odometry data for testing
 
@@ -33,8 +33,10 @@
 - N/A
 
 ### Goals For Next Week
-- Map again using actual odometry data
-- Generate map image
+- Improve transforms / design for cleaner map
+  - LIDAR wobbling while scanning
+  - IMU transform not correct
+- Redesign robot with LIDAR directly on cart (Remove pole)
 
 ## Emem Uko - Frontend
 
