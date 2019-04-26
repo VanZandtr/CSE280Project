@@ -10,12 +10,12 @@
 ## Raymond Van Zandt - Database/Backend
 
 ### Accomplished This Week
--Help matt map 2nd and 4th floor
--compress these maps via zlib
--added them to the database
+- Help Matt map 2nd and 4th floor
+- Compress these maps via zlib
+- Added them to the database
 
 ### Incomplete Tasks
-- Wanted to get frontend and backend functioning, but have not heard from Emem since wednesday
+- Wanted to get frontend and backend functioning, but have not heard from Emem since Wednesday
 - Plan to meet this weekend to connect everything
 
 ### Goals For Next Week
@@ -25,26 +25,23 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-- Created map image using lidar (First one for project)
-- Generated robot transforms
-- Created fake odometry data for testing
+- Created map image using lidar of 2 floors in Packard
+- Created script to process encoder input for odometry for robot
+- Debugged many small problems to clean up map
 
 ### Incomplete Tasks
 - N/A
 
 ### Goals For Next Week
-- Improve transforms / design for cleaner map
-  - LIDAR wobbling while scanning
-  - IMU transform not correct
-- Redesign robot with LIDAR directly on cart (Remove pole)
+- A* on map to find path between 2 rooms (1 floor)
 
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-- Implemented MDL design library features to frontend
+- 
 
 ### Incomplete Tasks
-- N/A
+- 
 
 ### Goals For Next Week
-- Connect frontend to backend server on heroku
+- 
