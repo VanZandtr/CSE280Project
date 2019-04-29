@@ -35,11 +35,12 @@ function getMap(map_filename, start_pos, end_pos, res) {
 
 // TODO: Temporary here until mapping implemented in the database
 const room_mapping = {
-    '202': '592,120',
-    '262': '540,1524',
+    'packard-202': '592,120',
+    'packard-262': '540,1524',
 };
 const building_mapping = {
-    'packard': 'packard_4thfloor.pgm'
+    'packard-4': 'packard_4thfloor.pgm'
+    'packard-2': 'packard_2ndfloor.pgm'
 };
 
 pathRouter.route('/')
