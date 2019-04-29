@@ -39,7 +39,7 @@ const room_mapping = {
     'packard-262': '540,1524',
 };
 const building_mapping = {
-    'packard-4': 'packard_4thfloor.pgm'
+    'packard-4': 'packard_4thfloor.pgm',
     'packard-2': 'packard_2ndfloor.pgm'
 };
 
