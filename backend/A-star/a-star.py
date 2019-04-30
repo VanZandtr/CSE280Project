@@ -9,6 +9,7 @@ Coordinate scheme is board[y][x]
 '''
 
 import sys
+import os
 import time
 from MapParser import *
 
@@ -153,9 +154,6 @@ def main(map_file, start_pt, end_pt, out_file='map.pgm', line_width=10):
 	start_time = time.time()
 	astar = AStar(board)
 	node = astar.findPath(start, end)
-	elapsed_time = time.time() - start_time
-	
-	print 'Elapsed Time: {} seconds'.format(elapsed_time)
 	
 	current = node
 	path = []
@@ -171,6 +169,11 @@ def main(map_file, start_pt, end_pt, out_file='map.pgm', line_width=10):
 		current = current.parent
 		
 	Array2Map(board, out_file)
+	PGM2PNG(out_file)
+	os.remove(out_file)
+	
+	elapsed_time = time.time() - start_time
+	print 'Elapsed Time: {} seconds'.format(elapsed_time)
 
 if __name__ == '__main__':
 	main(sys.argv[1], out_file=sys.argv[2], start_pt=sys.argv[3], end_pt=sys.argv[4])

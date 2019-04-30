@@ -1,5 +1,6 @@
 import sys
 import struct
+from PIL import Image
 
 MAP_INVALID  = 255
 MAP_PATHWAY  = 0
@@ -55,6 +56,21 @@ def Array2Map(converted_map, filename=None):
 	for row in converted_map:
 		for b in row:
 			f.write('{}'.format(chr(b)))
+
+def PGM2PNG(filename):
+	img = Image.open(filename)
+	img = img.convert("RGBA")
+	datas = img.getdata()
+
+	newData = []
+	for item in datas:
+	    if item[0] == 255 and item[1] == 255 and item[2] == 255:
+		newData.append((255, 255, 255, 0))
+	    else:
+		newData.append(item)
+
+	img.putdata(newData)
+	img.save(filename.replace('pgm', 'png'), "PNG")
 
 def main():
 	if len(sys.argv) < 2:
