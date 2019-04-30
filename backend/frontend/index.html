@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- mdl -->
+    <link rel = "stylesheet" href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.brown-yellow.min.css">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">	  
+    <script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+    <!-- osm -->
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div id = "header">
+      <div class="menu">
+        <!-- Left aligned menu below button -->
+        <button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons" id="menuicon" >menu</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-left">
+          <li id = "menuitem" class="mdl-menu__item">
+              <p id = "start">Where are you?</p>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="buildingstart">
+                <label class="mdl-textfield__label" for="sample3">Building</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="roomstart">
+                <label class="mdl-textfield__label" for="sample4">Room #</label>
+                 <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+  </form>
+            </li>
+            <li id = "menuitem" class="mdl-menu__item">
+                <p id = "start">Where are you going?</p>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="buildingdest">
+                  <label class="mdl-textfield__label" for="sample3">Building</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="roomdest">
+                    <label class="mdl-textfield__label" for="sample4">Room #</label>
+                     <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+              </li>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id ="Go"> Go! </button>
+        </ul>
+      </div> 
+
+     <h1 id = "heading">Explore Lehigh  <!--<img id = "lehighlogo" src="lehigh_shield.png">--></h1> 
+    
+    </div>
+
+    <div id="map"></div>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script src="http://openlayers.org/en/v5.3.0/build/ol.js"></script>
+    <script src="script.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWKI5QhUCVIqYev6w9nL4Nuw4auKu4xAw&callback=initMap"
+    async defer></script> -- >
+  </body>
+</html>
