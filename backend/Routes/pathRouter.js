@@ -16,13 +16,14 @@ function mapPGM(map_filename, out_filename, start, end) {
 }
 function getMap(map_filename, start_pos, end_pos, res) {
     const out_filename = map_filename.replace('.pgm', '_' + start_pos + '_' + end_pos + '.pgm');
-    fs.exists(out_filename, function(exists) {
+    const png_filename = out_filename.replace('.pgm', '.png');
+    fs.exists(png_filename, function(exists) {
         if(exists) {
             console.log('Requested path exists, returning cached copy');
             res.writeHead(200, {
                 "Content-Type": "image/x-portable-bitmap",
             });
-            fs.createReadStream(out_filename).pipe(res);
+            fs.createReadStream(png_filename).pipe(res);
         } else {
             console.log('Requested path doesn\'t exist, mapping now...');
             var proc = mapPGM(map_filename, out_filename, start_pos, end_pos);
