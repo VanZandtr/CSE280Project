@@ -48,9 +48,9 @@ pathRouter.route('/')
     	//var filename = 'packard_4thfloor.pgm';
     	//var start_pos = '592,120';
     	//var end_pos   = '540,1524';
-        var building_start = building_mapping[req.body.building_start];
-        var start_loc      = room_mapping[req.body.room_start];
-        var end_loc        = room_mapping[req.body.room_end];
+        var building_start = building_mapping[req.query.building_start];
+        var start_loc      = room_mapping[req.query.room_start];
+        var end_loc        = room_mapping[req.query.room_end];
         
         if(typeof building_start == 'undefined' || typeof start_loc == 'undefined' || typeof end_loc == 'undefined') {
             console.log('Unknown mapping locations for path detected');

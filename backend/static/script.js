@@ -33,13 +33,13 @@
 
 
   $("#Go").click(function() {
-   
+    
     //get values from textfields
     var buildingstart = $("#buildingstart").val();
     var roomstart = $("#roomstart").val();
     var buildingdest = $("#buildingdest").val();
     var roomdest = $("#roomdest").val();
-
+    
     //print textfields
     console.log(buildingstart);
     console.log(roomstart);
@@ -52,15 +52,20 @@
     $("#buildingdest").val("");
     $("#roomdest").val("");
     
-    $.post("api/path/", 
-      { building_start: buildingstart, 
+    var data = {
+        building_start: buildingstart, 
         room_start: roomstart, 
         building_end: buildingdest, 
         room_end: roomdest 
-      },
-      function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-      });
+    };
+    $.ajax({
+        type: 'GET',
+        url: '/api/path',
+        data: data,
+        success: function (data) {
+            console.log(data);
+        }
+    });
 
    /* $.ajax({
       type: "GET",

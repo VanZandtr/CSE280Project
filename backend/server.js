@@ -22,11 +22,8 @@ function(err, db)
 const app = express();
 const port = process.env.PORT || 5656;
 
-//app.use(express.static("static"));
-//app.use(express.static("template"));
-
-var publicPath = path.resolve(__dirname, "frontend");
-app.use(express.static(publicPath));
+app.use(express.static("static"));
+app.use(express.static("templates"));
 
 app.use(bodyParser.json({ limit:'100mb'}));
 app.use(bodyParser.urlencoded({ limit:'100mb', extended: true}));
