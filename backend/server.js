@@ -2,6 +2,7 @@
 var express = require("express");
 var mapRouter = require("./Routes/mapRouter");
 var imageRouter = require("./Routes/imageRouter");
+var pathRouter = require("./Routes/pathRouter");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var MongoClient = require('mongodb').MongoClient;
@@ -31,6 +32,7 @@ app.use(bodyParser.json({ limit:'100mb'}));
 app.use(bodyParser.urlencoded({ limit:'100mb', extended: true}));
 app.use('/api/maps', mapRouter);
 app.use('/api/images', imageRouter);
+app.use('/api/path', pathRouter);
 
 
 app.listen(port, () => {

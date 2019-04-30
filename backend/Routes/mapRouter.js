@@ -1,5 +1,6 @@
 var express = require('express');
 var Map = require('../models/mapModel');
+var fs = require('fs');
 
 //import express from 'express';
 //import Map from '../models/mapModel';
