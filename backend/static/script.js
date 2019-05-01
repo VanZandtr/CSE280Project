@@ -14,15 +14,41 @@
 
   //room pa 202 & 262 
 
+
   $(document).ready(function () { 
     map = new OpenLayers.Map("map");
     map.addLayer(new OpenLayers.Layer.OSM());
     var fromProjection = new OpenLayers.Projection("EPSG:4326"); 
-    var toProjection   = new OpenLayers.Projection("EPSG:900913");
+    var toProjection   = new OpenLayers.Projection("EPSG:3857");
     var position       = new OpenLayers.LonLat(-75.3790, 40.6078).transform( fromProjection, toProjection);
     var zoom           = 18; 
     map.setCenter(position, zoom);
-  });
+
+    //code for overlaying map that didn't work. It should work though
+  /*  var inProj = new OpenLayers.Projection("EPSG:3825");
+    var outProj = map.getProjectionObject();
+    var extent = new OpenLayers.Bounds(0, 0, 528, 288).transform(inProj, outProj);
+    var size = new OpenLayers.Size(1125, 558);
+    var options = {
+                    opacity: 1.0,
+                    isBaseLayer: false,
+                    numZoomLevels: 20,
+                    format: "image/png",
+                };
+   
+    var ourMap = new OpenLayers.Layer.Image('ourmap', 
+                    "/api/path?building_start=packard-2&room_start=packard-202&room_end=packard-262", 
+                    extent, 
+                    new OpenLayers.Size(1125, 558), 
+                    options,
+                );
+            
+    map.addLayer(ourMap);
+
+
+    console.log("here!");
+
+  });*/
 
 
   //stops menu from closing when textfield is clicked
@@ -55,27 +81,30 @@
     var data = {
         building_start: buildingstart, 
         room_start: roomstart, 
-        building_end: buildingdest, 
+        //building_end: buildingdest, 
         room_end: roomdest 
     };
+
+    
+
+    $("#mapoverlay").html("<img width=\"78px\" src = /api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest + ">"); 
+    $("#mapoverlay").show();
+
+   // "/api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest, 
+
+/*
     $.ajax({
         type: 'GET',
         url: '/api/path',
         data: data,
-        success: function (data) {
+        success: function (data) {   
+            $("#overlay").show();
+            console.log("Successful!");
             console.log(data);
         }
     });
 
-   /* $.ajax({
-      type: "GET",
-      url: "api/images/",
-      dataType: "json",
-      success: function (data) {
-          $("body").html("The data is " + JSON.stringify(data));
-      }
-    });*/
-
+   */
 });
   
   

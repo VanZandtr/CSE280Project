@@ -1,6 +1,7 @@
 #map {
     height: 800px;
     width: 100%;
+    position: relative;
   }
 
 #header {
@@ -68,6 +69,7 @@ input {
 
 #menuicon {
   line-height: 24px;
+  color: white;
 }
 
 #menuitem {
@@ -77,4 +79,23 @@ input {
 #start {
   color: #502d0e;
   font-size: large;
+}
+
+#mapoverlay {
+  position: absolute;
+  display: none;
+  max-height: 0px;
+  max-width: 0px;
+  top: 500px;
+  right: 525px;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 2;
+  cursor: pointer;
+
+  -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(86deg);
 }
