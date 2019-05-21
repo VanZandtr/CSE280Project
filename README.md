@@ -4,7 +4,7 @@
 Create a process to more effienctly map the inside and outside of the Lehigh University campus.
 
 ## Hardware
-Lidar
+Lidar\s
 Odometer
 IMU
 Encoder
