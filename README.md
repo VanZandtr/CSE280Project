@@ -5,12 +5,12 @@ Create a process to more effienctly map the inside and outside of the Lehigh Uni
 
 ## Hardware
 Lidar<br>
-Odometer
-IMU
+Odometer<br>
+IMU<br>
 Encoder
 
 ## Software
-Openstreet maps (Frontend)
-NodeJS
-AWS
+Openstreet maps (Frontend)<br>
+NodeJS<br>
+AWS<br>
 ROS
