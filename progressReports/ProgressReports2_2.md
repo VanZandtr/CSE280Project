@@ -9,13 +9,15 @@
 ## Raymond Van Zandt - Database/Backend
 
 ### Accomplished This Week
-- TBD
+- Look at broken database and worked with emem to test it on frontend
 
 ### Incomplete Tasks
 - N/A
 
 ### Goals For Next Week
-- TBD
+- Make sure pathing is still working on frontend
+- Help with the start of mapping
+- Research cleaning Lidar maps for future use
 
 ## Matt Levy - Backend/ROS
 
