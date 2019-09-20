@@ -29,11 +29,12 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
--
+- Found a different way to overlay map on front end using the OSM API
 
 ### Incomplete Tasks
--N/A
+- Change code to get maps from Heroku path 
 
 ### Goals For Next Week
-- 
+- Change code to get maps from Heroku path 
+- Change the frontend overlay method to use the OSM API method 
 
