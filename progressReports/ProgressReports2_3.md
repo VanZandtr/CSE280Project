@@ -1,4 +1,4 @@
-# Progress Report 2.3:	Mapping Lehigh -		9/20/2019
+# Progress Report 8:	Mapping Lehigh -		4/26/2019
 
 ## Group
 ### Accomplished This Week
@@ -8,7 +8,7 @@
 ## Raymond Van Zandt - Database/Backend
 
 ### Accomplished This Week
-- 
+- Waiting on Emem and looking at cleaning maps
 
 ### Incomplete Tasks
 - N/A
@@ -19,22 +19,21 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-- 
+- Confirmed old programs still work with odometer
 
 ### Incomplete Tasks
-- N/A
+- Need to test that double odometer data correctly syncs
 
 ### Goals For Next Week
 - TBD
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
-- Found a different way to overlay map on front end using the OSM API
+-
 
 ### Incomplete Tasks
-- Change code to get maps from Heroku path 
+-N/A
 
 ### Goals For Next Week
-- Change code to get maps from Heroku path 
-- Change the frontend overlay method to use the OSM API method 
+- 
 
