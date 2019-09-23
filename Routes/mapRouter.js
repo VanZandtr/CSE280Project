@@ -13,11 +13,13 @@ mapRouter.route('/')
             res.json(maps)
         })
     })
+    /*
     .post((req, res) => {
         let map = new Map(req.body)
         map.save();
         res.status(201).send(map)
     })
+    */
 
 mapRouter.use('/:mapId', (req, res, next)=>{
    Map.findById(req.params.mapId, (err,map)=>{
@@ -34,6 +36,7 @@ mapRouter.route('/:mapId')
     .get((req, res) => {
         res.json(req.map)
     })
+    /*
     .put((req,res) => {
         req.map.mapName = req.body.mapName;
         req.map.imagePath= req.body.imagePath;
@@ -59,7 +62,8 @@ mapRouter.route('/:mapId')
                 res.status(204).send('removed')
             }
         })
-    }) //delete
+    })
+    */ //delete
 
 //export default mapRouter;
 module.exports = mapRouter;
