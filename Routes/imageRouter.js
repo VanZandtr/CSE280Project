@@ -19,6 +19,7 @@ imageRouter.use('/:imageId', (req, res, next)=>{
         if(err)
             res.status(500).send(err);
         else {
+            //set the found image == req.image
             req.image = image;
             next()
         }
@@ -26,6 +27,7 @@ imageRouter.use('/:imageId', (req, res, next)=>{
 })
 imageRouter.route('/:imageId')
     .get((req, res) => {
+        //send the found image.data to the user
         res.send(req.image.imageData);
         //res.json(req.image);
     })
