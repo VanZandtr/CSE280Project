@@ -4,6 +4,7 @@ var mongoose = require('mongoose')
 //const formidable = require('formidable');
 const path = require('path');
 const uploadDir = ''; // uploading the file to the same path as app.js
+
 const imageRouter = express.Router();
 
 imageRouter.route('/')
@@ -26,7 +27,7 @@ imageRouter.use('/:imageName', (req, res, next)=>{
 imageRouter.route('/:imageName')
 
     .get((req, res) => {
-        res.json(req.image.imageData)
+        res.json(req.image)
     })
     
 module.exports = imageRouter;
