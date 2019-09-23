@@ -14,12 +14,11 @@ imageRouter.route('/')
     })
 
 imageRouter.use('/name/:imageName', (req, res, next)=>{
-    Image.findById(req.image.imageName, (err,image)=>{
+    Image.findById(req.image.imageId, (err,image)=>{
         if(err)
             res.status(500).send(err);
         else {
-            console.log(req.image);
-            req.image = image;
+            res.send(image.imageData);
             next()
         }
     })
