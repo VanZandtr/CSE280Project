@@ -14,7 +14,7 @@ imageRouter.route('/')
         })
     })
 
-imageRouter.use('/:imageName', (req, res, next)=>{
+imageRouter.use('/:imageId', (req, res, next)=>{
     Image.findById(req.params.imageId, (err,image)=>{
         if(err)
             res.status(500).send(err);
@@ -24,9 +24,9 @@ imageRouter.use('/:imageName', (req, res, next)=>{
         }
     })
 })
-imageRouter.route('/:imageName')
+imageRouter.route('/:imageId')
     .get((req, res) => {
-        res.send(image);
+        res.send(req.image)
         //res.json(req.image);
     })
     
