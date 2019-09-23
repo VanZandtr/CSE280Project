@@ -26,7 +26,7 @@ imageRouter.use('/:imageId', (req, res, next)=>{
 })
 imageRouter.route('/:imageId')
     .get((req, res) => {
-        res.send(req.imageData)
+        res.send(req.image.imageData);
         //res.json(req.image);
     })
     
