@@ -20,7 +20,7 @@ mapRouter.route('/')
     })
 
 mapRouter.use('/:mapId', (req, res, next)=>{
-   Map.findById( req.params.mapId, (err,map)=>{
+   Map.findById(req.params.mapId, (err,map)=>{
         if(err)
             res.status(500).send(err)
         else {
@@ -33,7 +33,7 @@ mapRouter.use('/:mapId', (req, res, next)=>{
 mapRouter.route('/:mapId')
     .get((req, res) => {
         res.json(req.map)
-    }) // end get maps/:mapId
+    })
     .put((req,res) => {
         req.map.mapName = req.body.mapName;
         req.map.imagePath= req.body.imagePath;
