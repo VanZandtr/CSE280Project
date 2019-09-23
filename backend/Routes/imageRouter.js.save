@@ -19,12 +19,50 @@ imageRouter.route('/')
         res.status(201).send(image)
     })
 
+/*
+	var form = new formidable.IncomingForm();
+
+	form.parse(req);
+
+    	form.on('fileBegin', function (name, file){
+        	file.path = file.name;
+    	});
+
+    	form.on('file', function (name, file){
+        	console.log('Uploaded ' + file.name);
+    	});
+
+    	res.sendFile(form);
+    })
+*/
+/*
+       var form = new formidable.IncomingForm()
+       form.multiples = true
+       form.keepExtensions = true
+       form.uploadDir = uploadDir
+       form.parse(req, (err, fields, files) => {
+       if (err) return res.status(500).json({ error: err })
+	 console.log(err)
+         res.status(200).json({ uploaded: true })
+       })
+       form.on('fileBegin', function (name, file) {
+         console.log(name)
+         console.log(file)
+
+         const [fileName, fileExt] = file.name.split('.')
+         file.path = path.join(uploadDir, `${fileName}_${new Date().getTime()}.${fileExt}`)
+       })
+       res.status(201).send(form)
+*/
+
+
+
 imageRouter.use('/:imageName', (req, res, next)=>{
+    console.log(mongoose.Types.ObjectId.isValid(req.toString()))
     Image.findById(req.params.imageId, (err,image)=>{
         if(err)
             res.status(500).send(err)
         else {
-            console.log(req.image);
             req.image = image;
             next()
         }
