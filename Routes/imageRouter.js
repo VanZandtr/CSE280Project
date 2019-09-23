@@ -9,28 +9,22 @@ const imageRouter = express.Router();
 imageRouter.route('/')
     .get((req, res) => {
         Image.find({}, (err, images) => {
-            res.json(images)
+            res.json(images);
         })
     })
 
-    .post((req, res) => {
-        let image = new Image(req.body)
-        image.save();
-        res.status(201).send(image)
-    })
-
 imageRouter.use('/name/:imageName', (req, res, next)=>{
-    Image.findById(req.params.imageId, (err,image)=>{
+    Image.findById(req.image.imageName, (err,image)=>{
         if(err)
-            res.status(500).send(err)
-        else {s
+            res.status(500).send(err);
+        else {
             console.log(req.image);
             req.image = image;
             next()
         }
     })
 })
-
+/*
 imageRouter.route('/id/:Id')
 
     .get((req, res) => {
@@ -43,5 +37,5 @@ imageRouter.route('/id/:Id')
         req.image.save()
         res.json(req.image)
     })
-
+*/
 module.exports = imageRouter;
