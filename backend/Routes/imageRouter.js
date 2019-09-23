@@ -25,7 +25,7 @@ imageRouter.use('/:imageName', (req, res, next)=>{
             res.status(500).send(err)
         else {
             console.log(req.image);
-            req.image.imageData = image;
+            req.image = image;
             next()
         }
     })
@@ -34,7 +34,7 @@ imageRouter.use('/:imageName', (req, res, next)=>{
 imageRouter.route('/:imageId')
 
     .get((req, res) => {
-        res.json(req.image)
+        res.json(req.image.imageData)
     })
 
     .put((req,res) => {
@@ -43,6 +43,7 @@ imageRouter.route('/:imageId')
         req.image.save()
         res.json(req.image)
     })
+    /*
     .patch((req,res)=>{
         if(req.body._id){
             delete req.body._id;
@@ -53,6 +54,7 @@ imageRouter.route('/:imageId')
         req.image.save()
         res.json(req.image)
     }) //patch
+
     .delete((req,res)=>{
         req.image.remove(err => {
             if(err){
@@ -63,6 +65,7 @@ imageRouter.route('/:imageId')
             }
         })
     }) //delete
+    */
 
 
 module.exports = imageRouter;
