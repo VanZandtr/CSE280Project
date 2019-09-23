@@ -25,9 +25,8 @@ imageRouter.use('/:imageName', (req, res, next)=>{
     })
 })
 imageRouter.route('/:imageName')
-
     .get((req, res) => {
-        res.json(req.image)
+        res.json(req.image);
     })
     
 module.exports = imageRouter;
