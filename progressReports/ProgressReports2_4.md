@@ -25,13 +25,15 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
-- 
+- Connected LIDAR and single odometer together with ROS
+- Recorded basic mapping to confirm parity with old LIDAR setup from last semester
 
 ### Incomplete Tasks
-- 
+- N/A
 
 ### Goals For Next Week
-- TBD
+- Attach second odometer to setup to allow for turning of cart around corners
+- Determine level of effort to track turns with odometry data (Not positive if done automatically)
 
 ## Emem Uko - Frontend
 
