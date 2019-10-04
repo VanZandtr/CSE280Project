@@ -47,3 +47,4 @@
 ### Goals For Next Week
 - Continue working on integrating maps on frontend using openlayers
 - Make sure Heroku paths work frontend displays as it should
+- Help with mapping
