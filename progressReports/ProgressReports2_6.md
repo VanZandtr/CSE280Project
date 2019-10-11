@@ -35,10 +35,11 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
--  
+-  Came up with some changes for the UI
 
 ### Incomplete Tasks
--  
+-  Get the openlayers map overlaying to work
 
 ### Goals For Next Week
-- 
+- Figure out openlayers overlaying
+- Make new changes to UI
