@@ -15,6 +15,7 @@
   //room pa 202 & 262 
 
 
+  /*
   $(document).ready(function () { 
     map = new OpenLayers.Map("map");
     map.addLayer(new OpenLayers.Layer.OSM());
@@ -23,6 +24,24 @@
     var position       = new OpenLayers.LonLat(-75.3790, 40.6078).transform( fromProjection, toProjection);
     var zoom           = 18; 
     map.setCenter(position, zoom);
+    */
+
+    $(document).ready(function () {
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+            })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([-75.3790, 40.6078]),
+                zoom: 19
+            })
+      });
+    });
+
+   
 
     //code for overlaying map that didn't work. It should work though
   /*  var inProj = new OpenLayers.Projection("EPSG:3825");
@@ -107,5 +126,4 @@
    */
 });
   
-  
-  
+
