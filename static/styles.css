@@ -87,7 +87,11 @@ input {
   max-height: 0px;
   max-width: 0px;
   top: 500px;
+<<<<<<< HEAD
   right: 75x0px;
+=======
+  right: 640px;
+>>>>>>> b2411bd3819336b6eb065d70d77c80600eca0ece
   bottom: 0;
   background-color: transparent;
   z-index: 2;
