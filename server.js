@@ -54,11 +54,14 @@ const upload = multer({ storage });
 
 // @route GET /
 // @desc Loads form
-app.get('/', (req, res) => {
+
+//app.get('/', (req, res) => {});
+
+app.get('/views', (req, res) => {
   gfs.files.find().toArray((err, files) => {
     // Check if files
     if (!files || files.length === 0) {
-      //res.render('index', { files: false });
+      res.render('index', { files: false });
     } else {
       files.map(file => {
         if (
