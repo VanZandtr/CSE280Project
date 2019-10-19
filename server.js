@@ -1,120 +1,154 @@
-let express = require('express'); 
-let app = express(); 
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/files');
-let conn = mongoose.connection;
-let multer = require('multer');
-let GridFsStorage = require('multer-gridfs-storage');
-let Grid = require('gridfs-stream');
-Grid.mongo = mongoose.mongo;
-let gfs = Grid(conn.db);
-let port = 3000;
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const crypto = require('crypto');
+const mongoose = require('mongoose');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override');
 
-// Setting up the root route
-app.get('/', (req, res) => {
-    res.send('Welcome to the express server');
-});
+const app = express();
 
-// Allows cross-origin domains to access this API
-app.use((req, res, next) => {
-    res.append('Access-Control-Allow-Origin' , 'http://localhost:4200');
-    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.append("Access-Control-Allow-Headers", "Origin, 
-Accept,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, 
-Access-Control-Request-Method, Access-Control-Request-Headers");
-    res.append('Access-Control-Allow-Credentials', true);
-    next();
-});
-
-// BodyParser middleware
+// Middleware
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
+app.set('view engine', 'ejs');
 
-// Setting up the storage element
-let storage = GridFsStorage({
-    gfs : gfs,
+// Mongo URI
+//const mongoURI = 'mongodb://brad:brad@ds257838.mlab.com:57838/mongouploads';
+const mongoURI = 'mongodb+srv://vanzandtr:vanzandtr@cluster0-gomra.mongodb.net/mapsDatabase';
 
-    filename: (req, file, cb) => {
-        let date = Date.now();
-        // The way you want to store your file in database
-        cb(null, file.fieldname + '-' + date + '.'); 
-    },
+// Create mongo connection
+const conn = mongoose.createConnection(mongoURI);
 
-    // Additional Meta-data that you want to store
-    metadata: function(req, file, cb) {
-        cb(null, { originalname: file.originalname });
-    },
-    root: 'ctFiles' // Root collection name
+// Init gfs
+let gfs;
+
+conn.once('open', () => {
+  // Init stream
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('uploads');
 });
 
-// Multer configuration for single file uploads
-let upload = multer({
-    storage: storage
-}).single('file');
-
-// Route for file upload
-app.post('/upload', (req, res) => {
-    upload(req,res, (err) => {
-        if(err){
-             res.json({error_code:1,err_desc:err});
-             return;
+// Create storage engine
+const storage = new GridFsStorage({
+  url: mongoURI,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
         }
-        res.json({error_code:0, error_desc: null, file_uploaded: true});
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        };
+        resolve(fileInfo);
+      });
     });
+  }
 });
+const upload = multer({ storage });
 
-// Downloading a single file
-app.get('/file/:filename', (req, res) => {
-    gfs.collection('ctFiles'); //set collection name to lookup into
-
-    /** First check if file exists */
-    gfs.files.find({filename: req.params.filename}).toArray(function(err, files){
-        if(!files || files.length === 0){
-            return res.status(404).json({
-                responseCode: 1,
-                responseMessage: "error"
-            });
+// @route GET /
+// @desc Loads form
+app.get('/', (req, res) => {
+  gfs.files.find().toArray((err, files) => {
+    // Check if files
+    if (!files || files.length === 0) {
+      res.render('index', { files: false });
+    } else {
+      files.map(file => {
+        if (
+          file.contentType === 'image/jpeg' ||
+          file.contentType === 'image/png'
+        ) {
+          file.isImage = true;
+        } else {
+          file.isImage = false;
         }
-        // create read stream
-        var readstream = gfs.createReadStream({
-            filename: files[0].filename,
-            root: "ctFiles"
-        });
-        // set the proper content type 
-        res.set('Content-Type', files[0].contentType)
-        // Return response
-        return readstream.pipe(res);
-    });
+      });
+      res.render('index', { files: files });
+    }
+  });
 });
 
-// Route for getting all the files
+// @route POST /upload
+// @desc  Uploads file to DB
+app.post('/upload', upload.single('file'), (req, res) => {
+  // res.json({ file: req.file });
+  res.redirect('/');
+});
+
+// @route GET /files
+// @desc  Display all files in JSON
 app.get('/files', (req, res) => {
-    let filesData = [];
-    let count = 0;
-    gfs.collection('ctFiles'); // set the collection to look up into
+  gfs.files.find().toArray((err, files) => {
+    // Check if files
+    if (!files || files.length === 0) {
+      return res.status(404).json({
+        err: 'No files exist'
+      });
+    }
 
-    gfs.files.find({}).toArray((err, files) => {
-        // Error checking
-        if(!files || files.length === 0){
-            return res.status(404).json({
-                responseCode: 1,
-                responseMessage: "error"
-            });
-        }
-        // Loop through all the files and fetch the necessary information
-        files.forEach((file) => {
-            filesData[count++] = {
-                originalname: file.metadata.originalname,
-                filename: file.filename,
-                contentType: file.contentType
-            }
-        });
-        res.json(filesData);
-    });
+    // Files exist
+    return res.json(files);
+  });
 });
 
-app.listen(port, (req, res) => {
-    console.log("Server started on port: " + port);
+// @route GET /files/:filename
+// @desc  Display single file object
+app.get('/files/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // Check if file
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists'
+      });
+    }
+    // File exists
+    return res.json(file);
+  });
 });
 
+// @route GET /image/:filename
+// @desc Display Image
+app.get('/image/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // Check if file
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists'
+      });
+    }
 
+    // Check if image
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      // Read output to browser
+      const readstream = gfs.createReadStream(file.filename);
+      readstream.pipe(res);
+    } else {
+      res.status(404).json({
+        err: 'Not an image'
+      });
+    }
+  });
+});
+
+// @route DELETE /files/:id
+// @desc  Delete file
+app.delete('/files/:id', (req, res) => {
+  gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
+    if (err) {
+      return res.status(404).json({ err: err });
+    }
+
+    res.redirect('/');
+  });
+});
+
+const port = 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));

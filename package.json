@@ -10,11 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.7.1",
     "express": "4.16.4",
     "formidable": "^1.2.1",
+    "gridfs-stream": "^1.1.1",
     "heroku": "^7.22.9",
+    "method-override": "^3.0.0",
     "mongodb": "^3.2.3",
     "mongoose": "^5.5.1",
-    "multer": "^1.4.1"
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^3.3.0"
   }
 }
