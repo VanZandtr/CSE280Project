@@ -55,7 +55,9 @@ const upload = multer({ storage });
 // @route GET /
 // @desc Loads form
 
-//app.get('/', (req, res) => {});
+app.get('/', (req, res) => {
+   res.sendFile('/templates/index.html');
+});
 
 app.get('/views', (req, res) => {
   gfs.files.find().toArray((err, files) => {
