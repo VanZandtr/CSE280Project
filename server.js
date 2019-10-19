@@ -56,14 +56,14 @@ const upload = multer({ storage });
 // @desc Loads form
 
 app.get('/', (req, res) => {
-   res.sendFile('/templates/index.html');
+   res.render('/index.html');
 });
 
 app.get('/views', (req, res) => {
   gfs.files.find().toArray((err, files) => {
     // Check if files
     if (!files || files.length === 0) {
-      res.render('index', { files: false });
+      res.render('index.ejs', { files: false });
     } else {
       files.map(file => {
         if (
@@ -75,7 +75,7 @@ app.get('/views', (req, res) => {
           file.isImage = false;
         }
       });
-      res.render('index', { files: files });
+      res.render('index.ejs', { files: files });
     }
   });
 });
