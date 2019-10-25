@@ -27,10 +27,12 @@
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
+- Started research on ways to decrease angle for LIDAR
 
 ### Incomplete Tasks
 
 ### Goals For Next Week
+- Remove self from LIDAR scan (Decrease angle from 360-270 degrees)
 
 ## Emem Uko - Frontend
 
