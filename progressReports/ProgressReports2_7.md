@@ -37,7 +37,9 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
+- Working on overlaying map on frontend OSM
 
 ### Incomplete Tasks
 
 ### Goals For Next Week
+- Figure out the best way to overlay map on frontend OSM
