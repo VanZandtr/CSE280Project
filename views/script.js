@@ -76,7 +76,7 @@
   document.querySelector("#buildingdest").addEventListener('click', function(e) {e.stopPropagation()});
   
  $("#Go").click(function() {
-   var img = ("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
+   var img = $('<img />' {src : 'https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png'});
    //var img = $('<img />', {src : 'http://webpage.com/images/' + $('#imagename').val() +'.png'});
    //img.appendTo('mapoverlay');
    $("#mapoverlay").append(img);
