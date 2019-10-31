@@ -55,7 +55,7 @@ const upload = multer({ storage });
 // @desc Loads form
 
 app.get('/', (req, res) => {
-   res.sendfile('/views/index');
+   res.render('/views/index');
 });
 
 app.get('/views', (req, res) => {
@@ -74,7 +74,7 @@ app.get('/views', (req, res) => {
           file.isImage = false;
         }
       });
-      res.sendfile('file_interface', { files: files });
+      res.render('file_interface', { files: files });
     }
   });
 });
