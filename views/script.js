@@ -69,13 +69,12 @@
 
   });*/
 
-
+/*
   //stops menu from closing when textfield is clicked
   document.querySelector("#roomstart").addEventListener('click', function(e) {e.stopPropagation()});
   document.querySelector("#buildingstart").addEventListener('click', function(e) {e.stopPropagation()});
   document.querySelector("#roomdest").addEventListener('click', function(e) {e.stopPropagation()});
   document.querySelector("#buildingdest").addEventListener('click', function(e) {e.stopPropagation()});
-
 
   $("#Go").click(function() {
     
@@ -112,7 +111,6 @@
 
    // "/api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest, 
 
-/*
     $.ajax({
         type: 'GET',
         url: '/api/path',
