@@ -56,7 +56,7 @@ const upload = multer({ storage });
 // @desc Loads form
 
 app.get('/', (req, res) => {
-   res.render('index');
+   res.render('/views/index.html');
 });
 
 app.get('/views', (req, res) => {
