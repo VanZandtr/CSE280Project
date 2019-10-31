@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 // Mongo URI
 //const mongoURI = 'mongodb://brad:brad@ds257838.mlab.com:57838/mongouploads';
@@ -56,7 +56,7 @@ const upload = multer({ storage });
 // @desc Loads form
 
 app.get('/', (req, res) => {
-   res.render('/views/index.html');
+   res.sendfile('/views/index.html');
 });
 
 app.get('/views', (req, res) => {
@@ -75,7 +75,7 @@ app.get('/views', (req, res) => {
           file.isImage = false;
         }
       });
-      res.render('file_interface', { files: files });
+      res.sendfile('file_interface.html', { files: files });
     }
   });
 });
