@@ -108,7 +108,7 @@
 
    // $("#mapoverlay").html("<img width=\"78px\" src = /api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest + ">"); 
     //$("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
-    $("#mapoverlay").show();
+   // $("#mapoverlay").show();
 
    // "/api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest, 
 
