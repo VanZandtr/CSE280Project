@@ -13,10 +13,9 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 // Mongo URI
-//const mongoURI = 'mongodb://brad:brad@ds257838.mlab.com:57838/mongouploads';
 const mongoURI = 'mongodb+srv://vanzandtr:vanzandtr@cluster0-gomra.mongodb.net/mapsDatabase';
 
 // Create mongo connection
@@ -56,7 +55,7 @@ const upload = multer({ storage });
 // @desc Loads form
 
 app.get('/', (req, res) => {
-   res.sendfile('/views/index.html');
+   res.sendfile('/views/index');
 });
 
 app.get('/views', (req, res) => {
@@ -75,7 +74,7 @@ app.get('/views', (req, res) => {
           file.isImage = false;
         }
       });
-      res.sendfile('file_interface.html', { files: files });
+      res.sendfile('file_interface', { files: files });
     }
   });
 });
