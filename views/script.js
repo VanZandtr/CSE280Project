@@ -79,7 +79,6 @@
   $("#Go").click(function() {
    $("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
    $("#mapoverlay").show();
-  });
 /*      
     //get values from textfields
     var buildingstart = $("#buildingstart").val();
