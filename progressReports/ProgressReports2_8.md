@@ -38,7 +38,12 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
+- Met with Prof. Montella to go over best way to overlay maps 
+- Met up with Ray to figure out overlaying maps
+- Worked on issue with displaying with frontend
 
 ### Incomplete Tasks
 
 ### Goals For Next Week
+- Have a sure way to overlay maps implemented
+- Work on layering maps by floor 
