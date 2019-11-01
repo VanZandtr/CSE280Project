@@ -30,8 +30,8 @@
 
 ### Accomplished This Week
 
-
 ### Incomplete Tasks
+- Spent most of the week sick at home. No progress on robot.
 
 ### Goals For Next Week
 
