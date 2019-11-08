@@ -10,10 +10,16 @@
 ## Raymond Van Zandt - Database/Backend
 
 ### Accomplished This Week
+- Started work on poster
+- Helped matt finish packard
 
 ### Incomplete Tasks
+- N/A
 
 ### Goals For Next Week
+- Get poster done : Tuesday
+- Help matt gimp maps if needed
+- Get Frontend whatever it needs
 
 ## Matt Levy - Backend/ROS
 
