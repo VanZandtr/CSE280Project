@@ -30,7 +30,11 @@
 ## Emem Uko - Frontend
 
 ### Accomplished This Week
+- Wrote up frontend section of poster
+- Tested frontend to ensure previous error has been fixed
 
 ### Incomplete Tasks
+- Multiple overlays for multiple floors
 
 ### Goals For Next Week
+- Add multiple overlays for the multiple floors of Packard and include packard floors once mapping is done
