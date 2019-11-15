@@ -10,23 +10,33 @@
 ## Raymond Van Zandt - Database/Backend
 
 ### Accomplished This Week
-- 
+- Created Poster
+- Added new maps to Backend
+- Started PowerPoint
 
 ### Incomplete Tasks
 - N/A
 
 ### Goals For Next Week
-- 
+- Finish Poster
+- Finish PowerPoint
+- Load last map
 
 ## Matt Levy - Backend/ROS
 
 ### Accomplished This Week
--
+- Finished mapping packard
+- Map 2 maps
 
 ### Incomplete Tasks
+- N/A
 
 ### Goals For Next Week
-- 
+- Finish last packard map
+- map STEPS
+- do pathfind if applicable
+- get new picture of cart
+
 
 ## Emem Uko - Frontend
 
