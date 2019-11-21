@@ -39,6 +39,9 @@
                 zoom: 18
             })
       });
+      var img = $('<img />', {src : 'https://cse280project.herokuapp.com/image/16f28783f73d9755a4c719df6734edab.png'});
+      $("#mapoverlay").append(img);
+      $("#mapoverlay").show();
     });
 
    
