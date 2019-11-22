@@ -28,6 +28,7 @@
 
     $(document).ready(function () {
         var map = new ol.Map({
+            interactions: ol.interaction.defaults({mouseWheelZoom:false}),
             target: 'map',
             layers: [
                 new ol.layer.Tile({
@@ -36,15 +37,42 @@
             ],
             view: new ol.View({
                 center: ol.proj.fromLonLat([-75.3790, 40.6078]),
-                zoom: 18
+                zoom: 19
             })
-      });
-      var img = $('<img />', {src : 'https://cse280project.herokuapp.com/image/16f28783f73d9755a4c719df6734edab.png'});
-      $("#mapoverlay").append(img);
-      $("#mapoverlay").show();
+      });   
+     
     });
 
    
+    $("#showMaps").click(function() {
+        $("#actualmap1").append('<img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" />');
+        $("#actualmap2").append('<img id="packard3" src="https://cse280project.herokuapp.com/image/a23bd24fb1be137d9e92d719966860d8.png" />');
+        //$("#mapoverlay1").hide ();
+
+        $("#btnflr2").append('<button id="floor2" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"> 2 </button>');
+
+        $("#btnflr3").append('<button id="floor3" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"> 3 </button>');
+
+        $("#btnflr4").append('<button id="floor4" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"> 4 </button>');
+    
+        $("#btnflr2").click(function() {
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay1").append('<div id=""newactualmap1"> <img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" /> </div>');
+        });
+
+        $("#btnflr3").click(function() {
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay2").append('<div id="newactualmap2"> <img id="packard3" src="https://cse280project.herokuapp.com/image/a23bd24fb1be137d9e92d719966860d8.png" /> </div>');
+        });
+
+        $("#btnflr4").click(function() {
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay1").append('<div id="newactualmap1"> <img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" /> </div>');
+        });
+    });
 
     //code for overlaying map that didn't work. It should work though
   /*  var inProj = new OpenLayers.Projection("EPSG:3825");

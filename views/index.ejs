@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Mapping Lehigh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
@@ -40,7 +40,7 @@
                 <label class="mdl-textfield__label" for="sample4">Room #</label>
                  <span class="mdl-textfield__error">Input is not a number!</span>
               </div> -->
-  </form>
+
             </li>
             <li id = "menuitem" class="mdl-menu__item">
                 <p id = "start">Where are you going?</p>
@@ -60,7 +60,13 @@
               </li>
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id ="Go"> Go! </button>
         </ul>
+
+        <button id="showMaps" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+            Maps
+        </button>
+
       </div> 
+
 
      <h1 id = "heading">Explore Lehigh  <!--<img id = "lehighlogo" src="lehigh_shield.png">--></h1> 
     
@@ -68,9 +74,23 @@
 
     
 
-    <div id="mapoverlay"> </div>
+   
     <div id="map"></div>
-
+    <div id="mapoverlay" > 
+    <div id="mapoverlay2"> 
+        <div id="actualmap2"></div>
+    </div>
+    <div id="mapoverlay1"> 
+        <div id="mapoverlaybtns" >
+            <ul style="list-style-type:none">
+                <li id="btnflr2"> </li>
+                <li id="btnflr3"> </li>
+                <li id="btnflr4"> </li>
+            </ul>
+        </div>
+        <div id="actualmap1"></div>
+    </div>
+    </div>  
 
     
 

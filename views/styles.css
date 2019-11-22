@@ -8,7 +8,7 @@
   background-color: #502d0e;
   width: 100%;
   height: 70px;
-  margin-bottom: 20px;
+  
 }
 
 #heading {
@@ -81,25 +81,53 @@ input {
   font-size: large;
 }
 
-#mapoverlay {
+#mapoverlay1 {
   position: absolute;
-  display: none;
-  max-height: 0px;
-  max-width: 0px;
-  top: 500px;
-<<<<<<< HEAD
-  right: 75x0px;
-=======
-  right: 640px;
->>>>>>> b2411bd3819336b6eb065d70d77c80600eca0ece
-  bottom: 0;
-  background-color: transparent;
-  z-index: 2;
-  cursor: pointer;
 
-  -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(86deg);
+ 
+  top: 315px;
+  left: 490px;
+  transform: rotate(-6deg);
+  
 }
+
+#packard24 {
+  height: 20%;
+  width: 28%;
+}
+
+#mapoverlay2 {
+  position: absolute;
+
+  top: 315px;
+  left: 580px;
+  transform: rotate(-6deg);
+  
+}
+
+#packard3 {
+  height: 36%;
+  width: 29%;
+}
+
+#showMaps {
+  color: white;
+  width: 100px;
+}
+
+#floor2, #floor3, #floor4 {
+  background-color: #502d0e;
+  color: white;
+  width: 60px;
+  height: 60px;
+  min-width: initial;
+
+}
+
+#mapoverlaybtns {
+  margin-right: 70px;
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
