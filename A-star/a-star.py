@@ -6,26 +6,45 @@ Pathfind through NodeArray and returns the node from the end point or None if no
 To find path, access node.parent until node.parent == None
 
 Coordinate scheme is board[y][x]
+
+Created by Matthew Levy
+
 '''
 
 import sys
-import os
-import time
-from MapParser import *
 
 '''
 0 - Pathway
 1 - Wall
 '''
 
-class Point():
-	def __init__(self, x, y):
-		self.x = x
-		self.y = y
-	def __repr__(self):
-		return '[{}, {}]'.format(self.x, self.y)
-	def __eq__(self, other):
-		return self.x == other.x and self.y == other.y
+board = [
+	[3, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 1, 1, 1, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
+]
 
 class Node():
 	def __init__(self, point, g, h, parent=None):
@@ -36,7 +55,7 @@ class Node():
 	def getCost(self):
 		return self.g + self.h
 	def __repr__(self):
-		return 'Point: {}\tCost: {}\tParent: {}\n'.format(self.point, self.getCost(), self.parent.point if self.parent else 'N/A')
+		return 'Point: {}\tCost: {}\tParent: {}\n'.format(self.point, self.getCost(), self.parent.point)
 
 class PriorityQueue():
 	def __init__(self):
@@ -64,6 +83,9 @@ class PriorityQueue():
 		return ret
 
 class AStar():
+	NORMAL_COST  = 10
+	DIAGNOL_COST = 14
+	
 	def __init__(self, board):
 		self.__board     = board
 		self.__height    = len(board)
@@ -76,34 +98,37 @@ class AStar():
 			nodeRow = []
 			for j in range(self.__width):
 				# maxint == infinity
-				nodeRow.append(Node(Point(j, i), sys.maxint, sys.maxint))
+				nodeRow.append(Node([i, j], sys.maxsize, sys.maxsize))
 			nodeBoard.append(nodeRow)
 		return nodeBoard
 	
 	def __distance(self, a, b):
-		dx = abs(a.x - b.x)
-		dy = abs(a.y - b.y)
-		return dx + dy
+		return abs(a[0] - b[0]) + abs(a[1] - b[1])
 	
 	def __cost(self, end, current_cost, point):
-		return (current_cost + 1) + self.__distance(point, end)
+		return (current_cost + 1) + self.__distance(end, point)
+	
+	def __isDiagnol(self, current_point, next_point):
+		if current_point[0] != next_point[0] and current_point[1] != next_point[1]:
+			return True
+		return False
 	
 	def __neighbors(self, node):
 		points = []
-		points.append(Point(node.x - 1, node.y - 1))
-		points.append(Point(node.x - 1, node.y    ))
-		points.append(Point(node.x - 1, node.y + 1))
-		points.append(Point(node.x,     node.y - 1))
-		points.append(Point(node.x,     node.y + 1))
-		points.append(Point(node.x + 1, node.y - 1))
-		points.append(Point(node.x + 1, node.y    ))
-		points.append(Point(node.x + 1, node.y + 1))
+		points.append([node[0] - 1, node[1] - 1])
+		points.append([node[0] - 1, node[1]    ])
+		points.append([node[0] - 1, node[1] + 1])
+		points.append([node[0],     node[1] - 1])
+		points.append([node[0],     node[1] + 1])
+		points.append([node[0] + 1, node[1] - 1])
+		points.append([node[0] + 1, node[1]    ])
+		points.append([node[0] + 1, node[1] + 1])
 		
 		ret = []
 		for point in points:
-			if point.y < 0 or point.y >= self.__height or point.x < 0 or point.x >= self.__width or self.__board[point.y][point.x] > 0:
+			if point[0] < 0 or point[0] >= self.__height or point[1] < 0 or point[1] >= self.__width or self.__board[point[0]][point[1]] == 1:
 				continue
-			ret.append(self.__nodeBoard[point.y][point.x])
+			ret.append(self.__nodeBoard[point[0]][point[1]])
 		
 		return ret
 	
@@ -116,64 +141,102 @@ class AStar():
 		current    = None
 		while frontier.size() > 0:
 			current = frontier.remove()
-			if current.point == end:
+			if current.point[0] == end[0] and current.point[1] == end[1]:
 				break
 			
 			for neighbor in self.__neighbors(current.point):
-				if neighbor.point in close_list: continue
-				
 				# Get associated node
 				point = neighbor.point
 				
 				h = self.__distance(point, end)
-				# TODO: Won't work if g increments
-				g = current.g# + 1
+				g = current.g
+				if self.__isDiagnol(current.point, point):
+					g += self.DIAGNOL_COST
+				else:
+					g += self.NORMAL_COST
 				
 				new_cost = g + h
-				if neighbor.getCost() > new_cost or neighbor.point not in close_list:
+				
+				if neighbor.getCost() > new_cost or neighbor not in close_list:
 					neighbor.g      = g
 					neighbor.h      = h
 					neighbor.parent = current
 					
-					close_list.append(neighbor.point)
+					close_list.append(neighbor)
 					frontier.insert(neighbor)
-		return current if current.point == end else None
+		if current.point != end:
+			current = None
+		return current
 
-def main(map_file, start_pt, end_pt, out_file='map.pgm', line_width=10):
-	board = Map2Array(map_file)
+def printBoard(board, end_node, start, end):
+	# Create a copy
+	board = board[:]
 	
-	# Find path on board
-	#        x     y
-#	start = Point(592, 120)
-#	end   = Point(540, 1524)
-	s_pt = start_pt.split(',')
-	e_pt = end_pt.split(',')
-	start = Point(int(s_pt[0]), int(s_pt[1]))
-	end   = Point(int(e_pt[0]), int(e_pt[1]))
+	points = []
+	while end_node:
+		points.append(end_node.point)
+		end_node = end_node.parent
+	points.reverse()
+	
+	import time
+	import os
+	for point in points:
+		os.system("clear")
+		board[point[0]][point[1]] = 2
+		
+		board[start[0]][start[1]] = 3
+		board[end[0]][end[1]]     = 3
+		
+		__printBoard(board)
+		time.sleep(1)
+	
 
-	start_time = time.time()
+def __printBoard(board):
+	sys.stdout.write('-'*(len(board) + 2) + '\n')
+	for row in board:
+		sys.stdout.write('|')
+		for col in row:
+			if col == 0:
+				sys.stdout.write(' ')
+			elif col == 1:
+				sys.stdout.write('#')
+			elif col == 2:
+				sys.stdout.write('^')
+			elif col == 3:
+				sys.stdout.write('@')
+		sys.stdout.write('|\n')
+
+def main():
+	# Find path on board
+	start = []
+	end   = []
+	for i in range(len(board)):
+		for j in range(len(board[i])):
+			if board[i][j] == 3:
+				if start == []:
+					start.append(i)
+					start.append(j)
+				elif end == []:
+					end.append(i)
+					end.append(j)
+	
 	astar = AStar(board)
 	node = astar.findPath(start, end)
 	
+	inp = raw_input('Display Path? (y/N)')
+	if inp == 'y' or inp == 'Y':
+		printBoard(board, node, start, end)
+	
+	print('Path:')
 	current = node
 	path = []
+	path_cost = 0
 	while current:
-	#	print '\tPoint: [{:0>2d}, {:0>2d}] | G: {:0>4d} | H: {:0>4d} | Cost: {:0>4d}'.format(current.point.x, current.point.y, current.g, current.h, current.getCost())
-		pt = current.point
-		
-		for i in range(line_width):
-			for j in range(line_width):
-				board[pt.y + i][pt.x + j] = 125
-
-		path.append(pt)
+		print('\tPoint: [{:0>2d}, {:0>2d}] | G: {:0>4d} | H: {:0>4d} | Cost: {:0>4d}'.format(current.point[0], current.point[1], current.g, current.h, current.getCost()))
+		path.append(current.point)
+		path_cost += current.getCost()
 		current = current.parent
-		
-	Array2Map(board, out_file)
-	PGM2PNG(out_file)
-	os.remove(out_file)
-	
-	elapsed_time = time.time() - start_time
-	print 'Elapsed Time: {} seconds'.format(elapsed_time)
+	print('Path Cost: {}'.format(path_cost))
 
 if __name__ == '__main__':
-	main(sys.argv[1], out_file=sys.argv[2], start_pt=sys.argv[3], end_pt=sys.argv[4])
+    main()
