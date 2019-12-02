@@ -65,7 +65,7 @@ app.get('/path/:from/:to', (req, res) => {
     //run pyton code with params --> board_out.pgm
     //check for error
     //otherwise send
-    res.sendFile('test.png');
+    res.sendFile('test.png', { root: __dirname });
 
     //img.src="/uploads/"+res;
 
