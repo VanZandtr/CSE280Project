@@ -7,6 +7,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+const fs = require('fs');
 
 const app = express();
 
@@ -63,12 +64,19 @@ app.get('/', (req, res) => {
 app.get('/path/:from/:to', (req, res) => {
   if(req.params.from && req.params.to){
     //run pyton code with params --> board_out.pgm
-    //check for error
-    //otherwise send
-    res.sendFile('test.png', { root: __dirname });
-
-    //img.src="/uploads/"+res;
-
+    var spawn = require("child_process").spawn;
+    //roomabbr.roomnumber -------> (pa202, pa203)
+    var process = spawn('python', ["./A-star/pgm.py", req.params.from, req.params.to]);
+    //check if file exists
+    try{
+      if(fs.existsSync('./test.png')){
+        res.sendFile('test.png', { root: __dirname });
+        //img.src="/uploads/"+res;
+      }
+    }
+    catch(err){
+      res.redirect('/');
+    }
   }
   else{
     res.redirect('/');
