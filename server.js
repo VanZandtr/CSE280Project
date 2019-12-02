@@ -62,7 +62,13 @@ app.get('/', (req, res) => {
 
 app.get('/path/:from/:to', (req, res) => {
   if(req.params.from && req.params.to){
-    res.send(req.params.from + req.params.to);
+    //run pyton code with params --> board_out.pgm
+    //check for error
+    //otherwise send
+    res.sendFile('test.png');
+
+    //img.src="/uploads/"+res;
+
   }
   else{
     res.redirect('/');
