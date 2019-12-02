@@ -64,6 +64,7 @@ app.get('/path/:from/:to', function(req, res){
   var from = req.param('from');
   var to = req.param('to');
   console.log(from, to);
+  res.send(from, to);
 });
 
 app.get('/views', (req, res) => {
