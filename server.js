@@ -61,7 +61,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/path/:from/:to', (req, res) => {
-  res.send(req.param('from'), req.param('to'));
+  if(req.params.from && req.params.to){
+    res.send(req.params.from + req.params.to);
+  }
+  else{
+    res.redirect('/');
+  }
+  
 });
 
 app.get('/views', (req, res) => {
