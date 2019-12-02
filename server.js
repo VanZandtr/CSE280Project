@@ -54,11 +54,16 @@ const upload = multer({ storage });
 // @route GET /
 // @desc Loads form
 
-//testing if this works for script.js
 app.use(express.static('views'));
 
 app.get('/', (req, res) => {
    res.render('index');
+});
+
+app.get('/path/:from/:to', function(req, res){
+  var from = req.param('from');
+  var to = req.param('to');
+  console.log(from, to);
 });
 
 app.get('/views', (req, res) => {
