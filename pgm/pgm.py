@@ -4,9 +4,9 @@ import json
 
 try:
     from PIL import Image
-except
+except:
     import Image
-    
+
 from AStar import *
 
 '''
