@@ -3,6 +3,7 @@ import struct
 import json
 
 try:
+    import PIL
     from PIL import Image
 except:
     import Image
