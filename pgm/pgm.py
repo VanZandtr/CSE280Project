@@ -2,7 +2,11 @@ import sys
 import struct
 import json
 
-from PIL import Image
+try:
+    from PIL import Image
+except
+    import Image
+    
 from AStar import *
 
 '''
