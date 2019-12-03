@@ -2,6 +2,7 @@ import sys
 import struct
 import json
 
+from PIL import Image
 from AStar import *
 
 '''
@@ -42,6 +43,14 @@ def save_board(board, max_color=255, filename='board_out.pgm'):
         for col in row:
             f.write(struct.pack('B', col))
     f.close()
+
+    #convert to jpg
+    old_file = Image.open("board_out.pgm")
+    imsz = old_file.size
+    new_file = Image.new('L', imsz)
+    new_file.putdata(old_file.getdata())
+    new_file.save("board_out.png")
+
 
 def parse_header(data):
     # P5\n# CREATOR: GIMP PNM Filter Version 1.1\n1518 1177\n255

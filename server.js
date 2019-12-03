@@ -90,20 +90,18 @@ app.get('/path/:from/:to', (req, res) => {
     });
 
     setTimeout(function(){
-	//wait for pgm.py to be done
-	console.log("Done");
-    }, 10000);
-
-    //check if file exists
-    try{
-      if(fs.existsSync('./board_out.pgm')){
-        res.sendFile('board_out.pgm', { root: __dirname });
-        //img.src="/uploads/"+res;
-      }
-    }
-    catch(err){
-      res.redirect('/');
-    }
+	console.log("ending timeout");
+    	//check if file exists
+	try{
+	    if(fs.existsSync('./board_out.png')){
+        	res.sendFile('./board_out.png', { root: __dirname });
+	        //img.src="/uploads/"+res;
+      	    }
+	}
+	catch(err){
+	    res.redirect('/');
+	}
+    }, 8000);
   }
   else{
     res.redirect('/');
