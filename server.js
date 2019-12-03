@@ -8,8 +8,8 @@ const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 const fs = require('fs');
-
 const app = express();
+var im = require('imagemagick');
 
 // Middleware
 app.use(bodyParser.json());
@@ -93,15 +93,14 @@ app.get('/path/:from/:to', (req, res) => {
 	console.log("ending timeout");
     	//check if file exists
 	try{
-	    if(fs.existsSync('./board_out.png')){
-        	res.sendFile('./board_out.png', { root: __dirname });
-	        //img.src="/uploads/"+res;
-      	    }
+    if(fs.existsSync('./board_out.png')){
+      res.sendFile('./board_out.png', { root: __dirname });  
+    }
 	}
 	catch(err){
 	    res.redirect('/');
 	}
-    }, 8000);
+    }, 15000);
   }
   else{
     res.redirect('/');
