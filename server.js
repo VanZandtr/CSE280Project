@@ -71,14 +71,9 @@ app.get('/path/:from/:to', (req, res) => {
     console.log(building);
 
     //get room number from "from"
-    var number = parseInt((req.params.from).substring(2));
-    console.log(number);
-
-    //get first number from room number
-    while (number >= 10)  
-      number /= 10; 
-    console.log(number);
-       
+    var room_number = (req.params.from).substring(2);
+    console.log(room_number);
+    var number = room_number.substring(1);
 
     //roomabbr.roomnumber -------> (pa202, pa203)
     var process = spawn('python', ["./A-star/pgm.py", ("./maps/" + building + "/" + number + "/path.pgm"), ("./maps/" + building + "/" + number + "/" + number + ".pgm") ,req.params.from, req.params.to]);
