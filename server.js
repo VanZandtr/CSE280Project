@@ -65,12 +65,27 @@ app.get('/path/:from/:to', (req, res) => {
   if(req.params.from && req.params.to){
     //run pyton code with params --> board_out.pgm
     var spawn = require("child_process").spawn;
+
+    //get building intials
+    var building = (req.params.from).substring(0,2);
+    console.log(building);
+
+    //get room number from "from"
+    var number = parseInt((req.params.from).substring(2));
+    console.log(number);
+
+    //get first number from room number
+    while (number >= 10)  
+      number /= 10; 
+    console.log(number);
+       
+
     //roomabbr.roomnumber -------> (pa202, pa203)
-    var process = spawn('python', ["./A-star/pgm.py", req.params.from, req.params.to]);
+    var process = spawn('python', ["./A-star/pgm.py", ("./maps/" + building + "/" + number + "/path.pgm"), ("./maps/" + building + "/" + number + "/" + number + ".pgm") ,req.params.from, req.params.to]);
     //check if file exists
     try{
-      if(fs.existsSync('./test.png')){
-        res.sendFile('test.png', { root: __dirname });
+      if(fs.existsSync('./board_out.png')){
+        res.sendFile('board_out.png', { root: __dirname });
         //img.src="/uploads/"+res;
       }
     }
