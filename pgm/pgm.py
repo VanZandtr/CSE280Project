@@ -117,10 +117,13 @@ elif len(sys.argv) >= 3:
                 board[i][j] = 0
             else:
                 board[i][j] = 1
-    
-    with open('mapping.json', 'r') as f:
-        mappings = json.load(f)
-    
+    try:
+        with open('mapping.json', 'r') as f:
+            mappings = json.load(f)
+    except:
+        with open('./pgm/mapping.json', 'r') as f:
+            mappings = json.load(f)
+
     start_room = sys.argv[3]
     end_room   = sys.argv[4]
     start = mappings[start_room[:2]][int(start_room[2])][start_room[2:]]

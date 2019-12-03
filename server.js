@@ -78,7 +78,8 @@ app.get('/path/:from/:to', (req, res) => {
     console.log(first_number);
 
     //roomabbr.roomnumber -------> (pa202, pa203)
-    var process = spawn('python', [path.join("A-star", "pgm.py"), path.join("maps", building, first_number, "path.pgm"), path.join("maps", building, first_number, first_number + ".pgm") ,req.params.from, req.params.to]);
+    var process = spawn('python', [path.join("pgm", "pgm.py"), path.join("maps", building, first_number, "path.pgm"), path.join("maps", building, first_number, first_number + ".pgm") 
+,req.params.from, req.params.to]);
 
     process.stdout.on('data', function(data) {
 	console.log('stdout: ' + data);
@@ -88,10 +89,15 @@ app.get('/path/:from/:to', (req, res) => {
 	console.log('stderr: ' + data);
     });
 
+    setTimeout(function(){
+	//wait for pgm.py to be done
+	console.log("Done");
+    }, 10000);
+
     //check if file exists
     try{
-      if(fs.existsSync('./board_out.png')){
-        res.sendFile('board_out.png', { root: __dirname });
+      if(fs.existsSync('./board_out.pgm')){
+        res.sendFile('board_out.pgm', { root: __dirname });
         //img.src="/uploads/"+res;
       }
     }
@@ -102,7 +108,6 @@ app.get('/path/:from/:to', (req, res) => {
   else{
     res.redirect('/');
   }
-  
 });
 
 app.get('/views', (req, res) => {
