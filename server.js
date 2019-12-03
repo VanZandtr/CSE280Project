@@ -78,11 +78,18 @@ app.get('/path/:from/:to', (req, res) => {
     console.log(first_number);
 
     //roomabbr.roomnumber -------> (pa202, pa203)
-    var process = spawn('python', ["./A-star/pgm.py", ("./maps/" + building + "/" + first_number + "/path.pgm"), ("./maps/" + building + "/" + first_number + "/" + first_number + ".pgm") ,req.params.from, req.params.to]);
-    //check if file exists
-    console.log("process");
-    console.log(process);
+    var process = spawn('python', [path.join(__dirname,"A-star", "pgm.py"), path.join(__dirname,"maps", building, first_number, "path.pgm"), path.join(__dirname, "maps", building, 
+first_number, first_number + ".pgm") ,req.params.from, req.params.to]);
 
+    process.stdout.on('data', function(data) {
+	console.log('stdout: ' + data);
+    });
+
+    process.stderr.on('data', function(data) {
+	console.log('stderr: ' + data);
+    });
+
+    //check if file exists
     try{
       if(fs.existsSync('./board_out.png')){
         res.sendFile('board_out.png', { root: __dirname });
