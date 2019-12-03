@@ -74,10 +74,14 @@ app.get('/path/:from/:to', (req, res) => {
     var room_number = (req.params.from).substring(2);
     console.log(room_number);
     var number = room_number.substring(1);
+    console.log(number);
 
     //roomabbr.roomnumber -------> (pa202, pa203)
     var process = spawn('python', ["./A-star/pgm.py", ("./maps/" + building + "/" + number + "/path.pgm"), ("./maps/" + building + "/" + number + "/" + number + ".pgm") ,req.params.from, req.params.to]);
     //check if file exists
+    console.log("process");
+    console.log(process);
+    
     try{
       if(fs.existsSync('./board_out.png')){
         res.sendFile('board_out.png', { root: __dirname });
