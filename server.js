@@ -9,7 +9,6 @@ const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 const fs = require('fs');
 const app = express();
-var im = require('imagemagick');
 
 // Middleware
 app.use(bodyParser.json());
@@ -78,8 +77,14 @@ app.get('/path/:from/:to', (req, res) => {
     console.log(first_number);
 
     //roomabbr.roomnumber -------> (pa202, pa203)
-    var process = spawn('python', [path.join("pgm", "pgm.py"), path.join("maps", building, first_number, "path.pgm"), path.join("maps", building, first_number, first_number + ".pgm") 
-,req.params.from, req.params.to]);
+    try{
+	    var process = spawn('python', [path.join("pgm", "pgm.py"), path.join("maps", building, first_number, "path.pgm"), path.join("maps", building, first_number, first_number + ".pgm"), req.params.from, req.params.to]);
+    }
+    catch(e){
+	    console.log(e);
+	    var process = spawn('python', [path.join("../","pgm", "pgm.py"), path.join("../","maps", building, first_number, "path.pgm"), path.join("../", "maps", building, first_number, first_number + ".pgm"), req.params.from, req.params.to]);
+    }
+
 
     process.stdout.on('data', function(data) {
 	console.log('stdout: ' + data);
