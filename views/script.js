@@ -46,7 +46,17 @@
    
     $("#showMaps").click(function() {
 
-        
+        $("#pathMap").hide();
+        $("#mapoverlay1").show();
+        $("#mapoverlay2").show();
+        $("#mapoverlaybtns").show();
+
+        $("#actualmap1").html("");
+        $("#actualmap2").html("");
+        $("#btnflr2").html("");
+        $("#btnflr3").html("");
+        $("#btnflr4").html("");
+
         $("#actualmap1").append('<img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" />');
         $("#actualmap2").append('<img id="packard3" src="https://cse280project.herokuapp.com/image/a23bd24fb1be137d9e92d719966860d8.png" />');
         //$("#mapoverlay1").hide ();
@@ -138,11 +148,13 @@
         room_end: roomdest 
     }; */
 
+    $("#pathMap").show();
+    $("#pathMap").html("")
     
     $("#mapoverlay1").hide();
     $("#mapoverlay2").hide();
     $("#mapoverlaybtns").hide();
-    
+
     $("#pathMap").html("<img width=\"78px\" src = /path/" + roomstart + "/" + roomdest + ">"); 
     //$("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
     $("#pathMap").show();
