@@ -78,10 +78,9 @@
     $("#mapoverlay1").hide();
     $("#mapoverlay2").hide();
     $("#mapoverlaybtns").hide();
-    $("#pathMap").html("<img width=\"300px\" src = /path/" + roomstart + "/" + roomdest + ">"); 
+    $("#pathMap").html("<img id=\"pathpng\" width=\"300px\" src = /path/" + roomstart + "/" + roomdest + ">"); 
     $("#pathMap").show();
 
 });
 
-  
 
