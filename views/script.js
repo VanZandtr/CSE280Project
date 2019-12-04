@@ -141,6 +141,8 @@
     
     $("#mapoverlay1").hide();
     $("#mapoverlay2").hide();
+    $("#mapoverlaybtns").hide();
+    
     $("#pathMap").html("<img width=\"78px\" src = /path/" + roomstart + "/" + roomdest + ">"); 
     //$("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
     $("#pathMap").show();
