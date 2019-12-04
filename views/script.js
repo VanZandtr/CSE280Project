@@ -45,8 +45,6 @@
 
    
     $("#showMaps").click(function() {
-
-        
         $("#actualmap1").append('<img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" />');
         $("#actualmap2").append('<img id="packard3" src="https://cse280project.herokuapp.com/image/a23bd24fb1be137d9e92d719966860d8.png" />');
         //$("#mapoverlay1").hide ();
@@ -58,18 +56,21 @@
         $("#btnflr4").append('<button id="floor4" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"> 4 </button>');
     
         $("#btnflr2").click(function() {
-            $("#mapoverlay2").hide();
-            $("#mapoverlay1").show();
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay1").append('<div id=""newactualmap1"> <img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" /> </div>');
         });
 
         $("#btnflr3").click(function() {
-            $("#mapoverlay2").show();
-            $("#mapoverlay1").hide();
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay2").append('<div id="newactualmap2"> <img id="packard3" src="https://cse280project.herokuapp.com/image/a23bd24fb1be137d9e92d719966860d8.png" /> </div>');
         });
 
         $("#btnflr4").click(function() {
-            $("#mapoverlay2").hide();
-            $("#mapoverlay1").show();
+            $("#actualmap1").hide();
+            $("#actualmap2").hide();
+            $("#mapoverlay1").append('<div id="newactualmap1"> <img id="packard24" src="https://cse280project.herokuapp.com/image/3f135059027fea61200372cbf2cc1970.png" /> </div>');
         });
     });
 
@@ -101,53 +102,52 @@
 
   //stops menu from closing when textfield is clicked
   document.querySelector("#roomstart").addEventListener('click', function(e) {e.stopPropagation()});
-  //document.querySelector("#buildingstart").addEventListener('click', function(e) {e.stopPropagation()});
+  document.querySelector("#buildingstart").addEventListener('click', function(e) {e.stopPropagation()});
   document.querySelector("#roomdest").addEventListener('click', function(e) {e.stopPropagation()});
-  //document.querySelector("#buildingdest").addEventListener('click', function(e) {e.stopPropagation()});
+  document.querySelector("#buildingdest").addEventListener('click', function(e) {e.stopPropagation()});
   
  $("#Go").click(function() {
-/*   var img = $('<img />', {src : 'https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png'});
+   var img = $('<img />', {src : 'https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png'});
    //var img = $('<img />', {src : 'http://webpage.com/images/' + $('#imagename').val() +'.png'});
    //img.appendTo('mapoverlay');
    $("#mapoverlay").append(img);
    $("#mapoverlay").show();
- });*/
-      
+ });
+/*      
     //get values from textfields
-    //var buildingstart = $("#buildingstart").val();
+    var buildingstart = $("#buildingstart").val();
     var roomstart = $("#roomstart").val();
-    //var buildingdest = $("#buildingdest").val();
+    var buildingdest = $("#buildingdest").val();
     var roomdest = $("#roomdest").val();
     
     //print textfields
-    //console.log(buildingstart);
+    console.log(buildingstart);
     console.log(roomstart);
-    //console.log(buildingdest);
+    console.log(buildingdest);
     console.log(roomdest);
 
     //clear textfields
-    //$("#buildingstart").val("");
+    $("#buildingstart").val("");
     $("#roomstart").val("");
-    //$("#buildingdest").val("");
+    $("#buildingdest").val("");
     $("#roomdest").val("");
     
-   /* var data = {
+    var data = {
         building_start: buildingstart, 
         room_start: roomstart, 
         //building_end: buildingdest, 
         room_end: roomdest 
-    }; */
+    };
 
     
-    $("#mapoverlay1").hide();
-    $("#mapoverlay2").hide();
-    $("#pathMap").html("<img width=\"78px\" src = /path/" + roomstart + "/" + roomdest + ">"); 
-    //$("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
-    $("#pathMap").show();
+
+   // $("#mapoverlay").html("<img width=\"78px\" src = /api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest + ">"); 
+    $("#mapoverlay").html("<img width=\"78px\" src = https://cse280project.herokuapp.com/image/2961b60d28a39e7969eace5fa14abff8.png");
+   // $("#mapoverlay").show();
 
    // "/api/path?building_start=" + buildingstart + "&room_start=" + roomstart + "&room_end=" + roomdest, 
 
-   /* $.ajax({
+    $.ajax({
         type: 'GET',
         url: '/api/path',
         data: data,
@@ -156,8 +156,8 @@
             console.log("Successful!");
             console.log(data);
         }
-    });*/
+    });
 });
-
+*/
   
 
