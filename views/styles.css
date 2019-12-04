@@ -145,3 +145,9 @@ input {
   left: 600px;
   transform: rotate(-6deg);
 }
+
+#pathpng {
+  height: 36%;
+  width: 29%;
+  transform: rotate(270deg);
+}
